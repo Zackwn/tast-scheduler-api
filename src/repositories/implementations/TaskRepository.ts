@@ -2,7 +2,7 @@ import { Task } from "../../entities/Task";
 import { ITaskRepository } from "../ITaskRepository";
 
 export class TaskRepository implements ITaskRepository {
-  public tasks: Task[] = []
+  public readonly tasks: Task[] = []
 
   async findByName(name: string) {
     let task = this.tasks.find((task) => {

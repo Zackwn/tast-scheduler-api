@@ -7,9 +7,12 @@ async function TaskListener(taskRepository: ITaskRepository): Promise<void> {
   setInterval(async () => {
     const task = await taskRepository.getFirstAndPop()
     if (task) {
-      handleTask(task)
+      console.log('Task: '+task.name+' agendada')
+      setTimeout(() => {
+        handleTask(task)
+      }, task.time)
     }
-  }, (5000 * 5))
+  }, 0)
 }
 
 const handleTask = (task: Task) => {

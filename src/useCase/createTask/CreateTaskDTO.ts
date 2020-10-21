@@ -1,4 +1,5 @@
 export interface CreateTaskDTO {
   name: string,
-  description: string
+  description: string,
+  time: number
 }

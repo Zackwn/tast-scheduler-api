@@ -7,9 +7,9 @@ import createUserUseCase from './useCase/createTask'
 const server = http.createServer((request, response) => {
   if (request.url === '/new-task' && request.method === 'POST') {
     request.on('data', async (data) => {
-      const { name, description } = JSON.parse(data)
+      const { name, description, time } = JSON.parse(data)
       try {
-        await createUserUseCase.execute({ name, description })
+        await createUserUseCase.execute({ name, description, time })
         response.statusCode = 201
         response.write('Created!')
       } catch (err) {

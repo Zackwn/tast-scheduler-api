@@ -3,6 +3,7 @@ export class Task {
 
   public name: string
   public description: string
+  public time: number
 
   constructor (props: Omit<Task, 'id'>, id?: number) {
     Object.assign(this, props)
