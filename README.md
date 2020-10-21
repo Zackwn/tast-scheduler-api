@@ -8,3 +8,4 @@ This project was developed by following tools:
 
 * Node.js
 * TypeScript
+* Jest
