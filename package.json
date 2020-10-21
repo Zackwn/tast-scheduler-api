@@ -5,10 +5,13 @@
   "author": "Rafael",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/node": "^14.14.0",
+    "jest": "^26.6.0",
+    "supertest": "^5.0.0",
     "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.3"
