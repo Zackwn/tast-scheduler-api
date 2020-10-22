@@ -3,22 +3,25 @@ import { ITaskRepository } from "./repositories/ITaskRepository";
 
 import { taskRepository } from './useCase/createTask'
 
-async function TaskListener(taskRepository: ITaskRepository): Promise<void> {
-  setInterval(async () => {
-    const task = await taskRepository.getFirstAndPop()
+async function TaskListener(taskRepository: ITaskRepository): Promise<NodeJS.Timeout> {
+  let intervalID = setInterval(async () => {
+    const task = await taskRepository.getFirstUnscheduled()
     if (task) {
-      console.log('Task: '+task.name+' agendada')
+      console.log('Task: '+task.name+' scheduled')
       setTimeout(() => {
         handleTask(task)
+        taskRepository.deleteById(task.id)
       }, task.time)
     }
   }, 0)
+  return intervalID
 }
 
 const handleTask = (task: Task) => {
   console.log(task.name)
 }
 
-(() => {
-  TaskListener(taskRepository)
-})()
+export const startTaskListener = () => {
+  const intervalID = TaskListener(taskRepository)
+  return intervalID
+}

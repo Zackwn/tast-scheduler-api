@@ -4,8 +4,9 @@ export class Task {
   public name: string
   public description: string
   public time: number
+  public isScheduled: boolean
 
-  constructor (props: Omit<Task, 'id'>, id?: number) {
+  constructor (props: Omit<Task, 'id' | 'isScheduled'>, id?: number) {
     Object.assign(this, props)
 
     if (id) {

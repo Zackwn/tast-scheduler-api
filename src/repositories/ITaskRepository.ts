@@ -4,7 +4,8 @@ export interface ITaskRepository {
   tasks: Array<Task>
 
   findByName(name: string): Promise<Task>
+  deleteById(id: number): Promise<void>
   save(task: Task): Promise<void>
-  getFirstAndPop(): Promise<Task | null>
+  getFirstUnscheduled(): Promise<Task | null>
 }
 

@@ -1,7 +1,4 @@
 import http from 'http'
-
-import './TaskListener'
-
 import createUserUseCase from './useCase/createTask'
 
 const server = http.createServer((request, response) => {
