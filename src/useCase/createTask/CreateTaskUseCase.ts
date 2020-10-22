@@ -1,5 +1,5 @@
 import { Task } from "../../entities/Task";
-import { ITaskRepository } from "../../repositories/ITaskRepository";
+import { ITaskRepository } from "../../repositories/TaskRepository/ITaskRepository";
 import { CreateTaskDTO } from './CreateTaskDTO'
 
 export class CreateTaskUseCase {

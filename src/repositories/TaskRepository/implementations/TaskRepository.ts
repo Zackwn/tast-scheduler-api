@@ -1,4 +1,4 @@
-import { Task } from "../../entities/Task";
+import { Task } from "../../../entities/Task";
 import { ITaskRepository } from "../ITaskRepository";
 
 export class TaskRepository implements ITaskRepository {
@@ -21,15 +21,15 @@ export class TaskRepository implements ITaskRepository {
     this.tasks.push(task)
   }
 
-  async getFirstUnscheduled(): Promise<Task | null> {
+  async getFirstUnscheduled(): Promise<Task | undefined> {
     if (this.tasks.length === 0) {
-      return null
+      return undefined
     }
-    let firstUnscheduled = null
+    let firstUnscheduled: Task
     this.tasks.every((task, index) => {
       if (!task.isScheduled) {
-        firstUnscheduled = task
         this.tasks[index].isScheduled = true
+        firstUnscheduled = task
         return false
       }
       return true

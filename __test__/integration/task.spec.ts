@@ -2,7 +2,7 @@ import supertest from 'supertest'
 import request from 'supertest'
 import app from '../../src/app'
 
-describe('Task', () => {
+describe('Task scheduling api', () => {
   it('should create a task', async (done) => {
     const res = await request(app).post('/new-task').send({ 
       name: "test name",

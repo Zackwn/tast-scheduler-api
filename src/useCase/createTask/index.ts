@@ -1,7 +1,6 @@
-import { TaskRepository } from '../../repositories/implementations/TaskRepository'
+import TaskRepository from '../../repositories/TaskRepository'
 import { CreateTaskUseCase } from './CreateTaskUseCase'
 
-export const taskRepository = new TaskRepository()
-const createTaskUseCase = new CreateTaskUseCase(taskRepository)
+const createTaskUseCase = new CreateTaskUseCase(TaskRepository)
 
 export default createTaskUseCase

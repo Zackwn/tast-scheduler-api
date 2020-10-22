@@ -1,4 +1,4 @@
-import { Task } from "../entities/Task";
+import { Task } from "../../entities/Task";
 
 export interface ITaskRepository {
   tasks: Array<Task>
